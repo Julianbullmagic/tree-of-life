@@ -443,7 +443,9 @@ function Tree(props) {
                           p5.strokeWeight(2)
                           p5.stroke(0)
                           p5.fill(255);
-                          p5.text(group.split(': ')[1], 10, 5)
+                          let txt=grou.split(': ')[1]
+                          txt=txt.slice(0,13)
+                          p5.text(txt, 10, 5)
                           p5.pop()
                           p5.translate(0,-180);
                           radianprogress=radianprogress+radiangapbetweenbranches
@@ -500,9 +502,10 @@ function Tree(props) {
                       p5.strokeWeight(2)
                       p5.stroke(0)
                       p5.fill(255);
-                      p5.text(grou.split(': ')[1], 10, 5)
+                      let txt=grou.split(': ')[1]
+                      txt=txt.slice(0,13)
+                      p5.text(txt, 10, 5)
                       p5.pop()
-
                       p5.pop()
                       radianprogres=radianprogres+radiangapbetweenbranches
                       p5.rotate(radiangapbetweenbranches)
@@ -577,12 +580,12 @@ function Tree(props) {
                   <div class="loader" style={{margin:"4vw"}}></div><h1 style={{marginLeft:"4vw",fontSize:"250%",display:"inline",color:"#3498db"}}>Loading</h1>
                   </div>
                   <div style={{display:loading?"none":"block"}}>
-                  <div style={{transform:"translateY(-120px)"}}>
+                  <div style={{transform:"translateY(-140px)"}}>
                   <ReactP5Wrapper sketch={sketch} img={img}/>
                   </div>
                   <div style={{width:"100vw",margin:"0"}}>
                   <img src={garden} style={{width:"100vw",height:"100vh",top:"0",left:"0",position:"absolute",zIndex:"-10"}}/>
-                  <h1 style={{paddingLeft:"2vw",marginTop:"-40vh"}}>{trunklabellevel} {trunklabel}</h1>
+                  <h1 style={{paddingLeft:"2vw",marginTop:"-30vh"}}>{trunklabellevel} {trunklabel}</h1>
                   {(img||description)&&<div style={{width:"100vw",display:"flex"}}>
                   <div style={{width:"46vw",marginLeft:"2vw"}}>{img&&<img style={{width:"42vw"}} src={img}></img>}</div>
                   <div style={{width:"46vw",marginRight:"2vw"}}>{description&&<h4 style={{marginTop:"0",marginLeft:"0"}}>{description}</h4>}</div>
