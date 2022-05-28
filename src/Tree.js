@@ -566,7 +566,9 @@ function Tree(props) {
                   <div class="loader" style={{margin:"4vw"}}></div><h1 style={{marginLeft:"4vw",fontSize:"250%",display:"inline",color:"#3498db"}}>Loading</h1>
                   </div>
                   <div style={{display:loading?"none":"block"}}>
+                  <div style={{transform:"translateY(-40px)"}}>
                   <ReactP5Wrapper sketch={sketch}/>
+                  </div>
                   <div style={{width:"100vw",margin:"0"}}>
                   <img src={garden} style={{width:"100vw",height:"100vh",top:"0",left:"0",position:"absolute",zIndex:"-10"}}/>
                   <img src={pot} style={{width:"150px",position:"absolute",color:"white",zIndex:"-2",top:"550px",marginLeft:"275px"}}/>
