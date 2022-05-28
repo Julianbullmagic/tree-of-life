@@ -1,6 +1,6 @@
 import React, {useRef,useState,useEffect} from "react";
 import { ReactP5Wrapper } from "react-p5-wrapper";
-import pot from "./pot.png";
+import potimg from "./pot.png";
 import garden from "./garden.jpg";
 
 var searchlevel=""
@@ -377,17 +377,28 @@ function Tree(props) {
                 const sketch = (p5) => {
                   let theta,input,button
                   let numberofgroups=0
+                  let pot
+
+                  p5.preload = () => {
+                    p5.loadImage(potimg, imgg => {
+                      pot = imgg;
+                      console.log(img,"IMG")
+                    });
+                  }
 
                   p5.setup = () => {
                     if(taxonomyTree){
-                      p5.createCanvas(p5.windowWidth,p5.windowHeight,p5.CANVAS);
+                      p5.createCanvas(p5.windowWidth,p5.windowHeight+200,p5.CANVAS);
                       p5.clear();
                       p5.stroke(255);
                       p5.strokeWeight(40)
                       let a = 15
                       theta = p5.radians(a);
-                      p5.translate(350,p5.height-100);
+                      p5.translate(350,p5.height-275);
                       p5.stroke(101, 67, 33)
+                      if(pot){
+                        p5.image(pot, -75, 0,150,150);
+                      }
                       p5.line(0,0,0,-180);
                       p5.textSize(27);
                       p5.strokeWeight(2)
@@ -566,13 +577,12 @@ function Tree(props) {
                   <div class="loader" style={{margin:"4vw"}}></div><h1 style={{marginLeft:"4vw",fontSize:"250%",display:"inline",color:"#3498db"}}>Loading</h1>
                   </div>
                   <div style={{display:loading?"none":"block"}}>
-                  <div style={{transform:"translateY(-40px)"}}>
-                  <ReactP5Wrapper sketch={sketch}/>
+                  <div style={{transform:"translateY(-120px)"}}>
+                  <ReactP5Wrapper sketch={sketch} img={img}/>
                   </div>
                   <div style={{width:"100vw",margin:"0"}}>
                   <img src={garden} style={{width:"100vw",height:"100vh",top:"0",left:"0",position:"absolute",zIndex:"-10"}}/>
-                  <img src={pot} style={{width:"150px",position:"absolute",color:"white",zIndex:"-2",top:"550px",marginLeft:"275px"}}/>
-                  <h1 style={{paddingLeft:"2vw",paddingTop:"0",marginTop:"0"}}>{trunklabellevel} {trunklabel}</h1>
+                  <h1 style={{paddingLeft:"2vw",paddingTop:"0",marginTop:"-40vh"}}>{trunklabellevel} {trunklabel}</h1>
                   {(img||description)&&<div style={{width:"100vw",display:"flex"}}>
                   <div style={{width:"46vw",marginLeft:"2vw"}}>{img&&<img style={{width:"42vw"}} src={img}></img>}</div>
                   <div style={{width:"46vw",marginRight:"2vw"}}>{description&&<h4 style={{marginTop:"0",marginLeft:"0"}}>{description}</h4>}</div>
