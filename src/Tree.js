@@ -585,7 +585,7 @@ function Tree(props) {
                   </div>
                   <div style={{width:"100vw",margin:"0"}}>
                   <img src={garden} style={{width:"100vw",height:"100vh",top:"0",left:"0",position:"absolute",zIndex:"-10"}}/>
-                  <h1 style={{paddingLeft:"2vw",marginTop:"-25vh"}}>{trunklabellevel} {trunklabel}</h1>
+                  <h1 style={{paddingLeft:"2vw",marginTop:"-20vh"}}>{trunklabellevel} {trunklabel}</h1>
                   {(img||description)&&<div style={{width:"100vw",display:"flex"}}>
                   <div style={{width:"46vw",marginLeft:"2vw"}}>{img&&<img style={{width:"42vw"}} src={img}></img>}</div>
                   <div style={{width:"46vw",marginRight:"2vw"}}>{description&&<h4 style={{marginTop:"0",marginLeft:"0"}}>{description}</h4>}</div>
